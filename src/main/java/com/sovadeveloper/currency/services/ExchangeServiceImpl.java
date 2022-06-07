@@ -39,7 +39,7 @@ public class ExchangeServiceImpl implements ExchangeService{
                                  String currencySymbols){
         String tag;
         if(exchangeDTONow.getRates().get(currencySymbols) == null || exchangeDTONow.getRates().get(currencySymbols) == null){
-            log.warn("Не верно указана валюта");
+            log.warn("Валюта указана не верно");
             throw new RuntimeException("Валюта указана не верно");
         }
         if(exchangeDTONow.getRates().get(currencySymbols) > exchangeDTOPrev.getRates().get(currencySymbols)){
