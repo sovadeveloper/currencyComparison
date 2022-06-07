@@ -1,0 +1,17 @@
+#feign:
+#  client:
+#    config:
+#      exchangeClient:
+#        url: https://openexchangerates.org/api/
+
+exchange:
+  api:
+    key: a1fbcccec1594b2eb01b25268f66aa45
+    url: https://openexchangerates.org/api/
+  currency:
+    base: USD
+
+giphy:
+  api:
+    key: l3OcxcKR6EpN8RuRuBgS2gFnP8JSrQlA
+    url: api.giphy.com/v1/gifs
