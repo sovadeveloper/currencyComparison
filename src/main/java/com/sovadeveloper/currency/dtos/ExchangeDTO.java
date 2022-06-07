@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 @Data
-public class HistoricalDTO {
+public class ExchangeDTO {
     private String disclaimer;
     private String license;
     private Date timestamp;

@@ -15,3 +15,7 @@ giphy:
   api:
     key: l3OcxcKR6EpN8RuRuBgS2gFnP8JSrQlA
     url: api.giphy.com/v1/gifs
+
+server:
+  error:
+    include-message: always
