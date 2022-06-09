@@ -48,6 +48,7 @@ public class ExchangeServiceImpl implements ExchangeService{
             tag = brokeTag;
         }
         log.info("Выбираем рандомную гифку...");
+
         return giphyClient.getRandom(clientsProps.getGiphyApiKey(), tag);
     }
 
