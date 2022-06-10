@@ -5,10 +5,12 @@ import com.sovadeveloper.currency.dtos.GiphyData;
 import com.sovadeveloper.currency.feignClients.GiphyClient;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.HashMap;
@@ -16,7 +18,7 @@ import java.util.HashMap;
 import static org.mockito.Mockito.when;
 
 
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 class ExchangeServiceImplTest {
 
@@ -28,7 +30,9 @@ class ExchangeServiceImplTest {
 
     @Test
     void currencyComparison() {
-        GiphyDTO giphyDTO = new GiphyDTO(new GiphyData(), new HashMap<>());
+        HashMap<String, String> hm = new HashMap<>();
+        hm.put("RUB", "65");
+        GiphyDTO giphyDTO = new GiphyDTO(new GiphyData("https://some-url.com"), hm);
         when(giphyClient.getRandom("l3OcxcKR6EpN8RuRuBgS2gFnP8JSrQlA", "broke"))
                 .thenReturn(giphyDTO);
         GiphyDTO giphyDTO1 = exchangeService.currencyComparison("RUB");
