@@ -30,14 +30,14 @@ class ExchangeServiceImplTest {
 
     @Test
     void currencyComparison() {
-        HashMap<String, String> hm = new HashMap<>();
-        hm.put("RUB", "65");
-        GiphyDTO giphyDTO = new GiphyDTO(new GiphyData("https://some-url.com"), hm);
+        HashMap<String, String> testMap = new HashMap<>();
+        testMap.put("msg", "OK");
+        testMap.put("status", "200");
+
+        GiphyDTO giphyDTO = new GiphyDTO(new GiphyData("https://some-url.com"), testMap);
         when(giphyClient.getRandom("l3OcxcKR6EpN8RuRuBgS2gFnP8JSrQlA", "broke"))
                 .thenReturn(giphyDTO);
         GiphyDTO giphyDTO1 = exchangeService.currencyComparison("RUB");
-        System.out.println(giphyDTO);
-        System.out.println(giphyDTO1);
         Assertions.assertEquals(giphyDTO1, giphyDTO);
     }
 }

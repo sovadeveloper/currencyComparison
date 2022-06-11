@@ -25,8 +25,8 @@ public class ExchangeServiceImpl implements ExchangeService{
 
     @Override
     public GiphyDTO currencyComparison(String currencySymbols){
-        String formattedDateNow = dateFormatter(LocalDate.now());
-        String formattedDatePrev = dateFormatter(LocalDate.now().minusDays(1));
+        String formattedDateNow = dateFormatter(LocalDate.now().minusDays(1));
+        String formattedDatePrev = dateFormatter(LocalDate.now().minusDays(2));
         log.info("Получаем текущую стоимость валюты и вчерашнюю...");
         ExchangeDTO exchangeDTONow = exchangeClient.getHistorical
                 (formattedDateNow, clientsProps.getExchangeApiKey(), clientsProps.getBase(), currencySymbols);
