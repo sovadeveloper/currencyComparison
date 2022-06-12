@@ -14,7 +14,7 @@
     
 2) Перейти в него
 
-        cd currency
+        cd currencyComparison
     
 ## Запуск с помощью Gradle
 
