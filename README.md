@@ -16,7 +16,7 @@
 ## Запуск с помощью Gradle
 
 Запуск с помощью Gradle:
-    ./gradlew bootRun
+        ./gradlew bootRun
     
 ## Запуск с помощью Docker
 
