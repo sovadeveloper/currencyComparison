@@ -15,4 +15,13 @@ public class ClientsProps {
 
     @Value("${exchange.currency.base}")
     private String base;
+
+    @Value("${exchange.currency.symbol}")
+    private String symbol;
+
+    @Value("${giphy.tags.rich}")
+    private String richTag;
+
+    @Value("${giphy.tags.broke}")
+    private String brokeTag;
 }

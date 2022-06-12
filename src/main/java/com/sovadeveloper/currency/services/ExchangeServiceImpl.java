@@ -16,17 +16,14 @@ import java.time.format.DateTimeFormatter;
 @RequiredArgsConstructor
 @Slf4j
 public class ExchangeServiceImpl implements ExchangeService{
-    private static final String richTag = "rich";
-    private static final String brokeTag = "broke";
-
     private final ExchangeClient exchangeClient;
     private final GiphyClient giphyClient;
     private final ClientsProps clientsProps;
 
     @Override
     public GiphyDTO currencyComparison(String currencySymbols){
-        String formattedDateNow = dateFormatter(LocalDate.now().minusDays(1));
-        String formattedDatePrev = dateFormatter(LocalDate.now().minusDays(2));
+        String formattedDateNow = dateFormatter(LocalDate.now());
+        String formattedDatePrev = dateFormatter(LocalDate.now().minusDays(1));
         log.info("Получаем текущую стоимость валюты и вчерашнюю...");
         ExchangeDTO exchangeDTONow = exchangeClient.getHistorical
                 (formattedDateNow, clientsProps.getExchangeApiKey(), clientsProps.getBase(), currencySymbols);
@@ -43,9 +40,9 @@ public class ExchangeServiceImpl implements ExchangeService{
             throw new RuntimeException("Валюта указана не верно");
         }
         if(exchangeDTONow.getRates().get(currencySymbols) > exchangeDTOPrev.getRates().get(currencySymbols)){
-            tag = richTag;
+            tag = clientsProps.getRichTag();
         }else{
-            tag = brokeTag;
+            tag = clientsProps.getBrokeTag();
         }
         log.info("Выбираем рандомную гифку...");
 

@@ -4,11 +4,15 @@ exchange:
     url: https://openexchangerates.org/api/
   currency:
     base: USD
+    symbol: RUB
 
 giphy:
   api:
     key: l3OcxcKR6EpN8RuRuBgS2gFnP8JSrQlA
     url: api.giphy.com/v1/gifs
+  tags:
+    rich: rich
+    broke: broke
 
 server:
   error:
